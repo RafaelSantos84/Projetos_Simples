@@ -55,5 +55,7 @@ class Validador_cpf:
         else:
             return print(f'{Fore.RED}O CPF {self.cpf} é Inválido!{Style.RESET_ALL}')
 
-cpf = Validador_cpf('12345678909') #digite seu cpf
+
+teste_validador = input('Digite seu CPF: ')  #digite seu cpf
+cpf = Validador_cpf(teste_validador)
 Validador_cpf.validar_cpf(cpf)
