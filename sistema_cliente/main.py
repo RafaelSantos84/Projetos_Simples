@@ -6,7 +6,8 @@ resposta = 'sim'
 while resposta == 'sim':
     codigo = len(database.db_cliente)
     nome = str(input("Nome = "))
-    cpf = int(input("CPF = "))
+    #cpf = int(input("CPF = "))
+    cpf = models.teste_int("cpf")
     data_nascimento = str(input("Data de nascimento = "))
     endereco = str(input("Endereço = "))
     numero = str(input("Numero = "))
@@ -14,15 +15,15 @@ while resposta == 'sim':
     bairro = str(input("Bairro = "))
     municipio = str(input("Município = "))
     uf = str(input("UF = "))
-    telefone = int(input("Telefone = "))
-    telefone_alternativo = int(input("Telefone alternativo = "))
+    telefone = models.teste_int("telefone")
+    telefone_alternativo = models.teste_int("telefone alternativo")
 
-    print(database.db_cliente)
-
-    cliente1 = models.Cliente(codigo, nome, cpf, data_nascimento, endereco, numero, complemento, bairro, municipio, uf, telefone, telefone_alternativo)
-    cadastro = cliente1.__dict__
+    clientes = models.Cliente(codigo, nome, cpf, data_nascimento, endereco, numero, complemento, bairro, municipio, uf, telefone, telefone_alternativo)
+    cadastro = clientes.__dict__
     database.db_cliente.append(cadastro)
-    print(cliente1)
-    print(database.db_cliente)
-
-    resposta = input("Deseja continuar? ")
+    print(clientes)
+    resposta = input("Deseja continuar? [sim / nao] = ")
+    while resposta not in database.respostas:
+        print("ERRADO!")
+        resposta = input('Deseja continuar? [sim / nao] = ')
+print(clientes.relatorio())
