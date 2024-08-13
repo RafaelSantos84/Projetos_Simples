@@ -6,7 +6,6 @@ resposta = 'sim'
 while resposta == 'sim':
     codigo = len(database.db_cliente)
     nome = str(input("Nome = "))
-    #cpf = int(input("CPF = "))
     cpf = models.teste_int("cpf")
     data_nascimento = str(input("Data de nascimento = "))
     endereco = str(input("Endereço = "))
